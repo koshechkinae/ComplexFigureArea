@@ -29,11 +29,11 @@ public class Main
         return sideLength;
     }
 
-    private static float complexFigureArea(float side, int squareQuarterAmount, int circleAmount, int squareWithoutCircleAmount)
+    private static float complexFigureArea(float side, int squareQuarterAmount, int inscribedCircleAmount, int squareQuarterWithoutCircleQuarterAmount)
     {
         return squareQuarterAmount * squareQuarterArea(side) +
-               circleAmount * inscribedCircleArea(side) +
-               squareWithoutCircleAmount * squareWithoutCircleArea(side);
+               inscribedCircleAmount * inscribedCircleArea(side) +
+               squareQuarterWithoutCircleQuarterAmount * squareQuarterWithoutCircleQuarterArea(side);
     }
 
     private static void printAreaOfPicture(String figureNumber, float areaOfPicture)
@@ -56,7 +56,7 @@ public class Main
         return (float) (Math.PI * (Math.pow(side, 2) / 4));
     }
 
-    private static float squareWithoutCircleArea(float side)
+    private static float squareQuarterWithoutCircleQuarterArea(float side)
     {
         return (squareArea(side) - inscribedCircleArea(side)) / 4;
     }
