@@ -6,11 +6,11 @@ public class Main
     {
         float side = readSquareSide();
 
-        float areaOfPicture1 = complexFigureArea(side,0,0,2);
+        float areaOfPicture1 = calculateComplexFigureArea(side, 0, 0, 2);
 
-        float areaOfPicture2 = complexFigureArea(side,0,1,2);
+        float areaOfPicture2 = calculateComplexFigureArea(side, 0, 1, 2);
 
-        float areaOfPicture3 = complexFigureArea(side,1,0,1);
+        float areaOfPicture3 = calculateComplexFigureArea(side, 1, 0, 1);
 
         printAreaOfPicture("1", areaOfPicture1);
         printAreaOfPicture("2", areaOfPicture2);
@@ -29,11 +29,11 @@ public class Main
         return sideLength;
     }
 
-    private static float complexFigureArea(float side, int squareQuarterAmount, int inscribedCircleAmount, int squareQuarterWithoutCircleQuarterAmount)
+    private static float calculateComplexFigureArea(float side, int squareQuarterAmount, int inscribedCircleAmount, int squareQuarterWithoutCircleQuarterAmount)
     {
-        return squareQuarterAmount * squareQuarterArea(side) +
-               inscribedCircleAmount * inscribedCircleArea(side) +
-               squareQuarterWithoutCircleQuarterAmount * squareQuarterWithoutCircleQuarterArea(side);
+        return squareQuarterAmount * calculateSquareQuarterArea(side) +
+               inscribedCircleAmount * calculateInscribedCircleArea(side) +
+               squareQuarterWithoutCircleQuarterAmount * calculateSquareQuarterWithoutCircleQuarterArea(side);
     }
 
     private static void printAreaOfPicture(String figureNumber, float areaOfPicture)
@@ -41,24 +41,24 @@ public class Main
         System.out.printf("Площадь фигуры %s = %.2f\n", figureNumber, areaOfPicture);
     }
 
-    private static float squareArea(float side)
+    private static float calculateSquareArea(float side)
     {
         return (float) Math.pow(side, 2);
     }
 
-    private static float squareQuarterArea(float side)
+    private static float calculateSquareQuarterArea(float side)
     {
         return (float) Math.pow(side, 2) / 4;
     }
 
-    private static float inscribedCircleArea(float side)
+    private static float calculateInscribedCircleArea(float side)
     {
         return (float) (Math.PI * (Math.pow(side, 2) / 4));
     }
 
-    private static float squareQuarterWithoutCircleQuarterArea(float side)
+    private static float calculateSquareQuarterWithoutCircleQuarterArea(float side)
     {
-        return (squareArea(side) - inscribedCircleArea(side)) / 4;
+        return (calculateSquareArea(side) - calculateInscribedCircleArea(side)) / 4;
     }
 
 }
